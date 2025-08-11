@@ -18,27 +18,44 @@
 
         /* Hero section styling */
         .hero-section {
-            background-color: #E0E0E0; /* Light grey background for the hero area */
-            color: #212121; /* Dark text for hero section */
-            padding: 80px 0; /* Adjusted padding as there's no top fixed navbar now */
+            position: relative; /* Essential for positioning pseudo-element and content */
+            min-height: 500px; /* Fixed height for the cover effect */
             text-align: center;
-            position: relative;
-            overflow: hidden; /* Hide overflow for rounded corners on image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            overflow: hidden; /* Hide overflow for a clean look */
+            color: #FFFFFF; /* White text for better contrast against the dark background */
         }
-        .hero-section h1 {
+        /* Pseudo-element for the background image with cover properties */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/pałac.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.8); /* Darken the image slightly for better text readability */
+            z-index: 0; /* Position behind the text content */
+        }
+        /* Style for the text content on top of the image */
+        .hero-content {
+            position: relative; /* Position on top of the pseudo-element */
+            z-index: 1; /* Ensure it's on top */
+            padding: 80px 15px; /* Add some padding */
+        }
+     .hero-content h1 {
             font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .hero-section p {
-            font-weight: 300;
-            font-size: 1.25rem;
-        }
-        .hero-section img {
-            border-radius: 15px; /* Rounded corners for the hero image */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Soft shadow for the image */
-            margin-top: 40px;
-            max-width: 100%; /* Ensure image is responsive */
-            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 0; /* Remove bottom margin to make it flush with the background */
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background with 50% opacity */
+            padding: 30px 100px; /* Add 15px padding on all sides, resulting in 30px width added to the text */
+            border-radius: 10px; /* Rounded corners for the background */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a text shadow for extra readability */
+            display: inline-block; /* Make the background fit the content's width */
         }
 
         /* Centered sticky menu styling */
@@ -152,13 +169,10 @@
 </head>
 <body>
 
-    <!-- Sekcja Hero (grafika) - Main introductory section with the uploaded image -->
+    <!-- Sekcja Hero (grafika) - Main introductory section with a full-width background image -->
     <header class="hero-section" id="page-top">
-        <div class="container">
-            <!-- <h1 class="display-4">Wielki Dzień</h1>
-            <p class="lead">Zapraszamy na nasze wesele!</p> -->
-            <!-- User's uploaded image inserted here -->
-            <img src="images/pałac.png" class="img-fluid" alt="Pałac">
+        <div class="container hero-content">
+            <h1 class="display-4">Oliwia & Mikołaj</h1>
         </div>
     </header>
 
@@ -207,8 +221,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- Sekcja Kontakt - Contact information for the couple -->
     <section class="section" id="kontakt">
