@@ -16,31 +16,11 @@
             scroll-behavior: smooth; /* Smooth scrolling for navigation links */
         }
 
-        /* Navbar styling */
-        .navbar {
-            background-color: #212121 !important; /* Dark grey/black for navbar */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
-        }
-        .navbar-brand, .nav-link {
-            color: #F8F8F8 !important; /* Light text for navbar items */
-            font-weight: 400;
-            transition: color 0.3s ease; /* Smooth transition for hover effect */
-        }
-        .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
-            color: #BBBBBB !important; /* Lighter grey on hover/active */
-        }
-        .navbar-toggler {
-            border-color: rgba(255,255,255,0.1); /* Light border for toggler */
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
         /* Hero section styling */
         .hero-section {
             background-color: #E0E0E0; /* Light grey background for the hero area */
             color: #212121; /* Dark text for hero section */
-            padding: 120px 0 80px; /* Top padding to clear fixed navbar */
+            padding: 80px 0; /* Adjusted padding as there's no top fixed navbar now */
             text-align: center;
             position: relative;
             overflow: hidden; /* Hide overflow for rounded corners on image */
@@ -59,6 +39,27 @@
             margin-top: 40px;
             max-width: 100%; /* Ensure image is responsive */
             height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Centered sticky menu styling */
+        .centered-menu {
+            background-color: #FFFFFF;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #EEEEEE;
+            position: sticky; /* Make the menu stick to the top */
+            top: 0;
+            z-index: 1020; /* Ensure it stays on top of other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow for depth */
+        }
+        .centered-menu .nav-link {
+            color: #212121 !important;
+            font-weight: 700;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .centered-menu .nav-link:hover {
+            color: #BBBBBB !important;
         }
 
         /* General section styling */
@@ -149,37 +150,28 @@
         }
     </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
-
-    <!-- Nawigacja - Fixed-top navbar for easy access to sections -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <!-- Brand name for the wedding page -->
-            <a class="navbar-brand" href="#page-top">Nasze Wesele</a>
-            <!-- Toggler button for responsive navigation on small screens -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navigation links -->
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#dojazd">Dojazd</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#zdjecia">Zdjęcia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body>
 
     <!-- Sekcja Hero (grafika) - Main introductory section with the uploaded image -->
     <header class="hero-section" id="page-top">
         <div class="container">
-            <h1 class="display-4">Wielki Dzień</h1>
-            <p class="lead">Zapraszamy na nasze wesele!</p>
+            <!-- <h1 class="display-4">Wielki Dzień</h1>
+            <p class="lead">Zapraszamy na nasze wesele!</p> -->
             <!-- User's uploaded image inserted here -->
-            <img src="images/pałac.png" alt="Nasze Wesele" class="img-fluid rounded shadow-sm">
+            <img src="images/pałac.png" class="img-fluid" alt="Pałac">
         </div>
     </header>
+
+    <!-- Nowe, wyśrodkowane menu -->
+    <div class="centered-menu">
+        <div class="container">
+            <nav class="nav justify-content-center">
+                <a class="nav-link" href="#dojazd">Dojazd</a>
+                <a class="nav-link" href="#zdjecia">Zdjęcia</a>
+                <a class="nav-link" href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Sekcja Dojazd - Information about transportation and location with a Google Maps embed -->
     <section class="section" id="dojazd">
@@ -191,7 +183,7 @@
                     <p class="text-center mb-5"><strong>Adres:</strong> Pałac Ksawerów, Szkolna 12, 95-054 Ksawerów</p>
                     <!-- Google Maps embed. Replace 'src' with your desired map iframe code. -->
                     <div class="embed-responsive embed-responsive-16by9">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.02057150195!2d19.38096967706084!3d51.68630229761771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3679da919a9d%3A0x47200350f3ef2d51!2zUGHFgmFjIEtzYXdlcsOzdw!5e1!3m2!1spl!2spl!4v1754901068539!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.02057150195!2d19.38096967706084!3d51.68630229761771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3679da919a9d%3A0x47200350f3ef2d51!2sPa%C5%82ac%20Kultury%20i%20Nauki!5e1!3m2!1spl!2spl!4v1754901068539!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -216,7 +208,7 @@
         </div>
     </section>
 
-    <!-- Sekcja Menu - Details about the wedding menu
+    <!-- Sekcja Menu - Details about the wedding menu -->
     <section class="section" id="menu">
         <div class="container">
             <h2 class="section-heading">Menu Weselne</h2>
@@ -258,10 +250,10 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Sekcja Plan Wesela - Detailed schedule of the wedding day -->
-    <!-- <section class="section" id="plan-wesela">
+    <section class="section" id="plan-wesela">
         <div class="container">
             <h2 class="section-heading">Plan Wesela</h2>
             <div class="row justify-content-center">
@@ -282,7 +274,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Sekcja Kontakt - Contact information for the couple -->
     <section class="section" id="kontakt">
