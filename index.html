@@ -270,7 +270,6 @@
     <!-- New sticky countdown header -->
     <div id="countdown-header">
         <div id="countdown-timer-sticky">
-            <span>Pozostało:</span>
             <span id="days-sticky"></span> dni,
             <span id="hours-sticky"></span> godzin,
             <span id="minutes-sticky"></span> minut,
@@ -414,6 +413,8 @@
             // Add event listeners to hide the splash screen on click or scroll
             window.addEventListener('click', hideSplashScreen);
             window.addEventListener('wheel', hideSplashScreen);
+            // Add a touchstart listener for mobile devices to hide the splash screen on tap
+            window.addEventListener('touchstart', hideSplashScreen);
 
             // Update the countdown every second
             const updateCountdown = setInterval(() => {
