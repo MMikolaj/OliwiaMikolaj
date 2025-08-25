@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasze Wesele</title>
+    <title>Oliwia&Mikolaj</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Century+Gothic:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* Global styles for the body */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Century Gothic', sans-serif;
             background-color: #F8F8F8; /* Very light grey, almost white */
             color: #333333; /* Dark grey for text */
             scroll-behavior: smooth; /* Smooth scrolling for navigation links */
@@ -32,7 +32,7 @@
             text-align: center;
             z-index: 9999; /* Ensure it's on top of everything */
             transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-            background-image: url('images/pałac.png');
+            background-image: url('images/tlo.jpg');
             background-size: cover;
             background-position: center;
             overflow: hidden;
@@ -46,7 +46,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
             z-index: 0;
         }
 
@@ -135,7 +135,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/pałac.png');
+            background-image: url('images/tlo.jpg');
             background-size: cover;
             background-position: center;
             filter: brightness(0.8); /* Darken the image slightly for better text readability */
@@ -155,6 +155,14 @@
             border-radius: 10px; /* Rounded corners for the background */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a text shadow for extra readability */
             display: inline-block; /* Make the background fit the content's width */
+        }
+        /* Style for the logo image */
+        .hero-content img.logo {
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
         }
 
         /* Centered sticky menu styling */
@@ -264,12 +272,48 @@
             text-align: center;
             font-size: 0.9rem;
         }
+
+        /* Weather section specific styles */
+        #weather-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+        }
+        .weather-card {
+            background-color: #F8F8F8;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 220px; /* Larger width for more info */
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .weather-card h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .weather-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .weather-card .temp {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #212121;
+        }
     </style>
 </head>
 <body>
     <!-- New sticky countdown header -->
     <div id="countdown-header">
         <div id="countdown-timer-sticky">
+            <span>Pozostało:</span>
             <span id="days-sticky"></span> dni,
             <span id="hours-sticky"></span> godzin,
             <span id="minutes-sticky"></span> minut,
@@ -280,8 +324,9 @@
     <!-- Splash screen with countdown -->
     <div id="splash-screen">
         <div class="splash-content">
-            <h1 class="display-4">Oliwia & Mikołaj</h1>
-            <h2 class="mt-4">Nasz wielki dzień już za:</h2>
+    
+            <img src="images/splash_white.png" alt="Nie możemy się Was doczekać. Oliwia i Mikołaj" class="img-fluid" style="margin-bottom: 35px;">
+         
             <!-- Updated countdown structure for horizontal layout -->
             <div class="countdown-container-splash">
                 <div class="countdown-item">
@@ -307,7 +352,7 @@
     <!-- Sekcja Hero (grafika) - Main introductory section with a full-width background image -->
     <header class="hero-section" id="page-top">
         <div class="container hero-content">
-            <h1 class="display-4">Oliwia & Mikołaj</h1>
+            <img src="images/OiM_white.png" alt="Oliwia & Mikołaj" class="logo img-fluid">
         </div>
     </header>
 
@@ -316,12 +361,14 @@
         <div class="container">
             <nav class="nav justify-content-center">
                 <a class="nav-link" href="#dojazd">Dojazd</a>
+                <a class="nav-link" href="#ceremonia">Ceremonia</a>
+                <a class="nav-link" href="#pogoda">Pogoda</a>
                 <a class="nav-link" href="#zdjecia">Zdjęcia</a>
                 <a class="nav-link" href="#kontakt">Kontakt</a>
             </nav>
         </div>
-    </div>
-
+    </div
+    
     <!-- Sekcja Dojazd - Information about transportation and location with a Google Maps embed -->
     <section class="section" id="dojazd">
         <div class="container">
@@ -329,12 +376,41 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <p class="text-center mb-4">Tutaj znajdziesz wszystkie informacje dotyczące dojazdu do miejsca uroczystości i przyjęcia.</p>
-                    <p class="text-center mb-5"><strong>Adres:</strong> Pałac Ksawerów, Szkolna 12, 95-054 Ksawerów</p>
+                    <img src="images/DOJAZD.png" alt="dojazd" class="img-fluid mb-4">
+
+                    <p class="text-center mb-4 mt-4"><strong>Adres:</strong> Pałac Ksawerów, Szkolna 12, 95-054 Ksawerów</p>
                     <!-- Google Maps embed. Replace 'src' with your desired map iframe code. -->
                     <div class="embed-responsive embed-responsive-16by9">
                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.02057150195!2d19.38096967706084!3d51.68630229761771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a3679da919a9d%3A0x47200350f3ef2d51!2sPa%C5%82ac%20Kultury%20i%20Nauki!5e1!3m2!1spl!2spl!4v1754901068539!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sekcja Ceremonia - Information about the ceremony -->
+    <section class="section" id="ceremonia">
+        <div class="container">
+            <h2 class="section-heading">Ceremonia</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="text-center mb-4">Informacje dotyczące ceremonii ślubnej.</p>
+                    <p class="text-center mb-5"><strong>Miejsce:</strong> Pałac Ksawerów, Szkolna 12, 95-054 Ksawerów</p>
+                    <p class="text-center"><strong>Godzina:</strong> 16:00</p>
+                    <img src="images/IMPREZA.png" alt="ceremonia" class="img-fluid mb-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Pogoda - Weather forecast section -->
+    <section class="section" id="pogoda">
+        <div class="container">
+            <h2 class="section-heading">Pogoda</h2>
+            <p class="text-center mb-4">Sprawdź prognozę pogody na Wielki Dzień.</p>
+            <div id="weather-container">
+                <!-- Weather cards will be dynamically added here by JavaScript -->
+                <p id="weather-loading-text" class="text-center text-muted">Ładowanie prognozy pogody...</p>
             </div>
         </div>
     </section>
@@ -366,15 +442,27 @@
                     <p class="mb-4">W razie pytań prosimy o kontakt z nami:</p>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <h4 class="fw-bold">Mikołaj</h4>
-                            <p><a href="tel:+48512083832">+48 512 083 832</a></p>
-                        </div>
-                        <div class="col-md-6 mb-3">
                             <h4 class="fw-bold">Oliwia</h4>
                             <p><a href="tel:+48507759942">+48 507 759 942</a></p>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <h4 class="fw-bold">Mikołaj</h4>
+                            <p><a href="tel:+48512083832">+48 512 083 832</a></p>
+                        </div>
+                    </div>
+                    <p class="mb-4">Lub świadkami:</p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <h4 class="fw-bold">Weronika</h4>
+                            <p><a href="tel:+48530728955">+48 530 728 955</a></p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h4 class="fw-bold">Maciek</h4>
+                            <p><a href="tel:+48503876233">+48 503 876 233</a></p>
+                        </div>
                     </div>
                     <p class="mt-4">Czekamy na Wasze przybycie!</p>
+                    <img src="images/OiM.png" alt="Oliwia & Mikołaj" class="img-fluid mb-4">
                 </div>
             </div>
         </div>
@@ -383,8 +471,8 @@
     <!-- Stopka - Footer with copyright information -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Nasze Wesele. Wszelkie prawa zastrzeżone.</p>
-            <p>Stworzone z miłością.</p>
+            <p>&copy; 2025 Oliwia i Mikołaj. Wszelkie prawa zastrzeżone.</p>
+            <p>Stworzone z miłością &#10084; </p>
         </div>
     </footer>
 
@@ -399,10 +487,11 @@
 
             // Set the target date and time for the wedding (September 27, 2025 at 16:00)
             const weddingDate = new Date("September 27, 2025 16:00:00").getTime();
-
+            
             // Function to hide the splash screen and show the sticky header
             const hideSplashScreen = () => {
                 splashScreen.classList.add('hide');
+                splashScreen.style.backgroundImage = 'none'; // Remove the background image
                 countdownHeader.classList.add('show');
                 // Remove the splash screen from the DOM after the animation completes
                 setTimeout(() => {
@@ -410,10 +499,9 @@
                 }, 1000); // Match the CSS transition duration
             };
 
-            // Add event listeners to hide the splash screen on click or scroll
+            // Add event listeners to hide the splash screen on click, scroll, or touch
             window.addEventListener('click', hideSplashScreen);
             window.addEventListener('wheel', hideSplashScreen);
-            // Add a touchstart listener for mobile devices to hide the splash screen on tap
             window.addEventListener('touchstart', hideSplashScreen);
 
             // Update the countdown every second
@@ -453,6 +541,106 @@
                     if (document.getElementById("countdown-timer-sticky")) document.getElementById("countdown-timer-sticky").innerHTML = "Wielki dzień nadszedł!";
                 }
             }, 1000);
+            
+            // --- Weather forecast functionality with One Call API 3.0 (daily) ---
+
+            const weatherContainer = document.getElementById('weather-container');
+            const weatherLoadingText = document.getElementById('weather-loading-text');
+
+            // Replace with your OpenWeatherMap API key
+            const apiKey = 'df0e14828dd7f39ce1fcc01d1e5aece8';
+            const lat = 51.70; // Latitude for Ksawerów
+            const lon = 19.36; // Longitude for Ksawerów
+            // We request daily data
+            const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric&lang=pl`;
+            
+            // Function to fetch and display weather data
+            const fetchWeather = async () => {
+                try {
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    displayWeather(data);
+                } catch (error) {
+                    console.error('Błąd podczas pobierania prognozy pogody:', error);
+                    if (weatherLoadingText) {
+                        weatherLoadingText.textContent = "Nie udało się pobrać prognozy pogody. Spróbuj ponownie później.";
+                    }
+                }
+            };
+
+            const displayWeather = (data) => {
+                if (!data || !data.daily) {
+                    if (weatherLoadingText) {
+                        weatherLoadingText.textContent = "Prognoza pogody na dzień Wesela jeszcze nie jest dostępna.";
+                    }
+                    return;
+                }
+                
+                // Define the target dates for the forecast
+                const weddingDay = new Date("September 27, 2025 00:00:00").setHours(0,0,0,0);
+                const dayAfterWedding = new Date("September 28, 2025 00:00:00").setHours(0,0,0,0);
+                
+                const forecastsToShow = [];
+
+                // Find the weather data for the target days
+                data.daily.forEach(forecast => {
+                    const forecastDate = new Date(forecast.dt * 1000).setHours(0,0,0,0);
+                    
+                    if (forecastDate === weddingDay) {
+                        forecastsToShow.push({ data: forecast, label: 'Dzień Wesela' });
+                    }
+                    if (forecastDate === dayAfterWedding) {
+                        forecastsToShow.push({ data: forecast, label: 'Dzień Następny' });
+                    }
+                });
+
+                if (weatherLoadingText) {
+                    weatherLoadingText.remove();
+                }
+
+                // Check if any specific forecasts were found
+                if (forecastsToShow.length === 0) {
+                    const noDataMessage = document.createElement('p');
+                    noDataMessage.id = 'weather-loading-text';
+                    noDataMessage.classList.add('text-center', 'text-muted');
+                    noDataMessage.textContent = "Prognoza pogody na dzień Wesela jeszcze nie jest dostępna.";
+                    weatherContainer.appendChild(noDataMessage);
+                    return;
+                }
+                
+                // Display the filtered forecasts
+                forecastsToShow.forEach(forecast => {
+                    const card = document.createElement('div');
+                    card.classList.add('weather-card');
+                    
+                    const date = new Date(forecast.data.dt * 1000);
+                    const dayFormatted = date.toLocaleDateString('pl-PL', { weekday: 'long', month: 'long', day: 'numeric' });
+                    
+                    const iconCode = forecast.data.weather[0].icon;
+                    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                    const tempDay = Math.round(forecast.data.temp.day);
+                    const tempMin = Math.round(forecast.data.temp.min);
+                    const tempMax = Math.round(forecast.data.temp.max);
+                    const description = forecast.data.weather[0].description;
+                    
+                    card.innerHTML = `
+                        <h5>${forecast.label}</h5>
+                        <p>${dayFormatted}</p>
+                        <img src="${iconUrl}" alt="${description}">
+                        <p class="temp">${tempDay}°C</p>
+                        <p>Min: ${tempMin}°C | Max: ${tempMax}°C</p>
+                        <p>${description}</p>
+                    `;
+                    
+                    weatherContainer.appendChild(card);
+                });
+            };
+            
+            // Fetch weather data when the page loads
+            fetchWeather();
         });
     </script>
 </body>
